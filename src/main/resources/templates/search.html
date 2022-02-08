@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/search}">
+        <input type="text" th:name="phrase" th:value="${phrase}"/>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div id="result_list">
+</div>
+
+<!-- JQuery from Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+            $(document).ready(function () {
+
+                //call function when page is loaded
+                loadResultList();
+
+                function loadResultList() {
+                    //create url to request fragment
+                    var url = "/search/result";
+                    url = url + "?phrase=[[${phrase}]]";
+                    url = url + "&page=[[${page}]]"
+                    //load fragment with search result items
+                    $('#result_list').load(url);
+                }
+            })
+        </script>
+</body>
+</html>

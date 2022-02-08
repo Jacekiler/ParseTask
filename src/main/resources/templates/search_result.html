@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="result_list">
+    <div>
+        <table>
+            <tr th:each="item : ${items}">
+                <td>
+                    <a th:href="@{https://pomoc.bluemedia.pl{path}(path=${item.link})}" th:text="${item.title}" th:target="_blank">Title</a><br/>
+                    <span th:text="${item.preview.text}">Preview text</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${pages != null && pages > '0'}">
+        <th:block th:each="i: ${#numbers.sequence(1, pages)}" th:with="expr = ${i == 1} or ${i} == ${pages} or ${i} >= ${page}-1 and ${i} <= ${page}+1">
+            <a th:if="${expr}" th:href="@{/search(phrase=${phrase},page=${i})}" th:text="${i}"/>
+            <span th:unless="${expr} or ${i} != 2 and ${i} != ${pages}-1" th:text=".."/>
+        </th:block>
+    </div>
+
+</div>
+</body>
+</html>

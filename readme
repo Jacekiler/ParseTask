@@ -1,4 +1,4 @@
 Application is a simple web page that has search box and present results as a pageable list.
-By default it is run on port 8080 and can be reached on http://localhost:8080.
+By default it is run on port 8080 and can be reached on http://localhost:8080/search.
 Port can be changed in application.properties file.
 To start application use 'mvn spring-boot:run' command within command line from .pom file level.

@@ -1,21 +1,15 @@
 package com.example.parseTask.controllers;
 
 import com.example.parseTask.model.SearchResult;
-import com.example.parseTask.model.SearchResultItem;
 import com.example.parseTask.services.SearchService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.Future;
 
 import static com.example.parseTask.utils.Dictionary.*;
 
